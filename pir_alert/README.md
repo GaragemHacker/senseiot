@@ -17,7 +17,6 @@ Testar a integração da placa ESP8266 com NodeMCU e um broker MQTT. Neste
 exemplo vou simular que o pino 2 da placa esta conectado a um sensor PIR,
 poderia ser qualquer outro sensor digital como por exemplo um reed switch.
 
-
 Para este exemplo usei os seguintes itens:
 
 SW e HW
