@@ -40,9 +40,13 @@ end)
 m:lwt("/lwt", "Putz, perdi a conexao!", 0, 0)
 
 -- Quanto pir for para 1, envia mensagem para broker.
-function send_alert()
+function send_alert(s)
 	if mqtt_con then
-		m:publish("alert/pir", "1", 0, 0, function(m) if DEBUG then print("alerta intruso enviado") end end)
+		if s then
+			m:publish("alert/pir", "1", 0, 0, function(m) if DEBUG then print("alerta intruso enviado") end end)
+		else
+			m:publish("alert/pir", "0", 0, 0, function(m) if DEBUG then print("sensor normal") end end)
+		end
 	end
 end
 
@@ -51,7 +55,9 @@ function pir_check()
 	pir_state.c = gpio.read(pir_pin)
 	if DEBUG then print(gpio.read(pir_pin)) end
 	if (1 == pir_state.c) and (0 == pir_state.o) then
-		send_alert()
+		send_alert(true)
+	elseif (0 == pir_state.c) and (1 == pir_state.o) then
+		send_alert(false)
 	end
 	pir_state.o = pir_state.c
 end
