@@ -15,7 +15,7 @@ const char* password = "";
 char* topicHum = "dev/node1/humidity";
 char* topicTemp = "dev/node1/temperature";
 
-char* server = "104.236.109.245";
+char* server = "";
 char* hellotopic = "hello_topic";
 
 #define DHTPIN 5            // what pin we're connected to
