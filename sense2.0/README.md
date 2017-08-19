@@ -26,24 +26,24 @@ Software
 * **Docker**: Docker Containers
 
 Estrutura MQTT
--------
+--------------
 Regra de Comunicaço dos Tópicos MQTT para os Dispositivos
 
-/*				  MQTT Topic Struct
+/*		   MQTT Topic Struct
 
-				        'dev/node1/current2'
-				            |    |     |
+		  'dev/node1/current2'
+		    |    |     |
                     |    |     |
             device(dev)  |    variable to sub/pub 
-            		 or    	 | (led1..n,temp1...n,button1...n)
+            	 or    	 | (led1..n,temp1...n,button1...n)
                          |
             command(cmd) |
-            		      	 |
+            	      	 |
             	IoT device node (node1...n)
 
 */
 
-- Em resumo:
+ Em resumo:
 * Classe dispositivos(dev) ou comandos (cmd)
 * Nó IoT em Questão (node1,..n)
 * Variavel de Controle/Comandos (led1, button2, temp1, ...)
@@ -59,7 +59,7 @@ Dockers Containers
 Referências 
 -----------
 
- [ESP8266](https://github.com/Garagem-Hacker/senseiot/wiki) - Utilização do ESP8266.
- [ESP8266-&-MQTT](https://github.com/edgarreis/ESP8266-MQTT-Arduino) - Utilização do MQTT no ESP8266.
- [MQTT-Python-Web](https://douglaszuqueto.com/artigos/integrando-a-aplicacao-web-com-banco-de-dados) - Integrando a aplicação MQTT à web com banco de dados.
+ [ESP8266](https://github.com/Garagem-Hacker/senseiot/wiki) - Utilização do ESP8266;
+ [ESP8266-&-MQTT](https://github.com/edgarreis/ESP8266-MQTT-Arduino) - Utilização do MQTT no ESP8266;
+ [MQTT-Python-Web](https://douglaszuqueto.com/artigos/integrando-a-aplicacao-web-com-banco-de-dados) - Integrando a aplicação MQTT à web com banco de dados;
  
