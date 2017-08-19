@@ -6,8 +6,8 @@
 #define REPORT_INTERVAL 1   		    // in sec
 
 // Wifi SSID e Password
-const char* ssid = "AndroidAP";     
-const char* password = "kyio7159";  
+const char* ssid = "";
+const char* password = "";
 
 // Tópicos MQTT
 char* hellotopic = "hello_topic"; 
