@@ -24,6 +24,7 @@ Software
 * **BrokerMQTT**: Servidor IoT MQTT
 * **Flask**: Microframework Web Application
 * **Docker**: Docker Containers
+* **Crypto**: Encript/Decrypt Payload
 
 Estrutura MQTT
 --------------
