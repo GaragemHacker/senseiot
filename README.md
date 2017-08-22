@@ -1,7 +1,7 @@
 senseiot
 ========
 
-[![logo](https://raw.githubusercontent.com/Garagem-Hacker/senseiot/sense1.0/images/master/sense_iot2_128x128.png)](https://github.com/Garagem-Hacker/senseiot)
+[![logo](https://raw.githubusercontent.com/Garagem-Hacker/senseiot/sense1.0/images/sense_iot2_128x128.png)](https://github.com/Garagem-Hacker/senseiot)
 
 Sense IoT é um projeto para pesquisa e desenvolvimento de uma rede sem fio de
 sensores.
