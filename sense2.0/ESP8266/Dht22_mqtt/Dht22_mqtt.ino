@@ -12,11 +12,12 @@
 const char* ssid = "";
 const char* password = "";
 
-char* topicHum = "dev/node1/humidity";
-char* topicTemp = "dev/node1/temperature";
+char* topicHum = "/dev/node1/humidity";
+char* topicTemp = "/dev/node1/temperature";
 
 char* server = "";
 char* hellotopic = "hello_topic";
+int port = 1883;
 
 #define DHTPIN 5            // what pin we're connected to
 #define DHTTYPE DHT22       // DHT 22  (AM2302)
@@ -26,7 +27,7 @@ String clientName;
 DHT dht(DHTPIN, DHTTYPE, 15);
 WiFiClient wifiClient;
 
-PubSubClient client(server, 1883, wifiClient);
+PubSubClient client(server, port, wifiClient);
 
 float oldH ;
 float oldT ;
