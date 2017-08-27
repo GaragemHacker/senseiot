@@ -9,6 +9,10 @@
 #include <PubSubClient.h>
 #include <ESP8266WiFi.h>
 
+#define DHTPIN 5            // what pin we're connected to
+#define DHTTYPE DHT22       // DHT 22  (AM2302)
+#define REPORT_INTERVAL 1   // in sec
+
 const char* ssid = "";
 const char* password = "";
 
@@ -18,10 +22,6 @@ char* topicTemp = "/dev/node1/temperature";
 char* server = "";
 char* hellotopic = "hello_topic";
 int port = 1883;
-
-#define DHTPIN 5            // what pin we're connected to
-#define DHTTYPE DHT22       // DHT 22  (AM2302)
-#define REPORT_INTERVAL 1   // in sec
 
 String clientName;
 DHT dht(DHTPIN, DHTTYPE, 15);
@@ -33,6 +33,7 @@ float oldH ;
 float oldT ;
 
 void setup() {
+
   Serial.begin(115200);
   Serial.println("DHTxx test!");
   delay(20);
@@ -49,6 +50,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
+  
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
