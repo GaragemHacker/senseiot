@@ -1,0 +1,33 @@
+Partlist
+
+Exported from Rele-board.sch at 25/08/17 11:49
+
+EAGLE Version 8.3.1 Copyright (c) 1988-2017 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value                Device               Package       Library        Sheet
+
+C2       0.1uF                CPOL-USE2.5-6        E2,5-6        rcl            1
+D1       1N4004               1N4004               DO41-10       diode          1
+D2       1N4004               1N4004               DO41-10       diode          1
+FONTE    HLK-PM01             HLK-PM01             HLK-PM01      hlk-pm01       1
+H1       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+H2       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+H3       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+H4       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+JP1                           JP1Q                 JP1           jumper         1
+K1       5Vcc                 CQ1-12V              CQ1           relay          1
+K2       5Vcc                 CQ1-12V              CQ1           relay          1
+LED1                          LED3MM               LED3MM        led            1
+LED2                          LED3MM               LED3MM        led            1
+MOD1     ESP12E_DEVKIT        ESP12E_DEVKIT        ESP12E_DEVKIT ESP12E_DEVKIT  1
+Q1       BC338                BC338                TO92-EBC      transistor-npn 1
+Q2       BC338                BC338                TO92-EBC      transistor-npn 1
+R3       1K                   R-US_0207/10         0207/10       rcl            1
+R5       470R                 R-US_0207/10         0207/10       rcl            1
+R6       1K                   R-US_0207/10         0207/10       rcl            1
+R7       470R                 R-US_0207/10         0207/10       rcl            1
+X1                            AK300/3              AK300/3       con-ptr500     1
+X2                            AK300/2              AK300/2       con-ptr500     1
+X5                            AK300/3              AK300/3       con-ptr500     1

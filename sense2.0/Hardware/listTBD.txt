@@ -1,0 +1,27 @@
+Partlist
+
+Exported from TBD-board.sch at 25/08/17 11:49
+
+EAGLE Version 8.3.1 Copyright (c) 1988-2017 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value                Device               Package       Library        Sheet
+
+C1       0.1uF                C5/5                 C5B5          capacitor-wima 1
+C2       0.1uF                CPOL-USE2.5-6        E2,5-6        rcl            1
+FONTE    HLK-PM01             HLK-PM01             HLK-PM01      hlk-pm01       1
+H1       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+H2       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+H3       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+H4       SPECIAL_DRILL_0.1000 SPECIAL_DRILL_0.1000 PAD_0.1000    special-drill  1
+IC1      LM324N               LM324N               DIL14         linear         1
+JP1                           JP1Q                 JP1           jumper         1
+MOD1     ESP12E_DEVKIT        ESP12E_DEVKIT        ESP12E_DEVKIT ESP12E_DEVKIT  1
+R1       10K                  R-EU_0207/7          0207/7        resistor       1
+R2       1K                   R-EU_0207/7          0207/7        resistor       1
+R4       100K                 R-EU_0207/7          0207/7        resistor       1
+R17      100K                 R-EU_0207/7          0207/7        resistor       1
+R18      320                  R-EU_0207/7          0207/7        resistor       1
+X1       PG203J               PG203J               PG203J        con-hirschmann 1
+X2                            AK300/2              AK300/2       con-ptr500     1
