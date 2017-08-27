@@ -11,8 +11,8 @@ const char* password = "";
 
 // Tópicos MQTT
 char* hellotopic = "hello_topic"; 
-char* topic = "dev/node1/current";
-char* server = "echo1001.me";
+char* topic = "/dev/node1/current";
+char* server = "";
 int port = 1883;
 
 // MQTT Client
@@ -22,7 +22,7 @@ PubSubClient client(server, port, wifiClient);
 
 // Medição
 double Irms;
-double Vrms = 128.0;
+double Vrms = 127.0;
 int cnt;
 
 EnergyMonitor emon1;
