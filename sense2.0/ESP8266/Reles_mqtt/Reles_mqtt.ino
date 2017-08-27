@@ -29,10 +29,10 @@ const char* ssid          = ""
 const char* password      = ""
 const char* mqtt_server   = ""
 int port_server           = 1883;
-const char* topicButton2  = "dev/node1/led3";
-const char* topicButton3  = "dev/node1/led4";
-//const char* outTopic    = "clients/cmd";
-const char* outTopic      = "clients2";
+const char* topicButton2  = "/dev/node1/led3";
+const char* topicButton3  = "/dev/node1/led4";
+//const char* outTopic    = "/clients/cmd";
+const char* outTopic      = "/clients";
 
 char ButtonChar[5];
 char PayloadChar[5];
@@ -91,12 +91,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
       Serial.println(PayloadChar); 
 
-      if ( strcmp(PayloadChar,"0led") == 0){
+      if ( strcmp(PayloadChar,"desl") == 0){
 
         Serial.println(PayloadChar); 
         digitalWrite(ESP8266_LED1, LOW);
          
-      }else if ( strcmp(PayloadChar,"1led") == 0){
+      }else if ( strcmp(PayloadChar,"liga") == 0){
 
         Serial.println(PayloadChar); 
         digitalWrite(ESP8266_LED1, HIGH);
@@ -110,12 +110,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
       Serial.println(PayloadChar); 
 
-      if ( strcmp(PayloadChar,"0led") == 0){
+      if ( strcmp(PayloadChar,"desl") == 0){
 
         Serial.println(PayloadChar); 
         digitalWrite(ESP8266_LED2, LOW);
          
-      }else if ( strcmp(PayloadChar,"1led") == 0){
+      }else if ( strcmp(PayloadChar,"liga") == 0){
 
         Serial.println(PayloadChar); 
         digitalWrite(ESP8266_LED2, HIGH);
@@ -132,10 +132,10 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect
-    if (client.connect("ESP8266Client2")) {
+    if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish(outTopic, "Node2 Connected");
+      client.publish(outTopic, "Node Connected");
       // ... and resubscribe
       client.subscribe(topicButton2);
       client.subscribe(topicButton3);
