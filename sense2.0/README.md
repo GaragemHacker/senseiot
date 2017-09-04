@@ -32,7 +32,7 @@ Regra de Comunicaço dos Tópicos MQTT para os Dispositivos
 
 /*		   MQTT Topic Struct
 
- 	    '/dev/node1/current2'
+ 	    'dev/node1/current2'
 		|    |     |
 		|    |     |
   	device(dev)  |    variable to sub/pub 
