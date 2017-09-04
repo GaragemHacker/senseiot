@@ -11,7 +11,7 @@
 
 * **MOSQUITTO** container;
 
-Cria conteiner Mosquitto completo para configuração posterior
+Cria container Mosquitto completo para configuração posterior
 
 docker run -ti -p 1883:1883 -p 9001:9001 toke/mosquitto
 docker exec -it dMosquitto /bin/bash
