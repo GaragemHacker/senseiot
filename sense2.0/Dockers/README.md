@@ -20,6 +20,7 @@ docker run -p 80:80 -p 443:443 -v /var/www/html/ -:/var/www/html/ -d eboraas/apa
 
 ------------------
 
-* **Arvore dos Containers** MQTT;
+* **Arvore dos Containers**
+
 
 [![Logo](https://raw.githubusercontent.com/edgarreis/senseiot/master/sense2.0/Dockers/Tree-04-09-17.png)](https://github.com/Garagem-Hacker/senseiot/).
