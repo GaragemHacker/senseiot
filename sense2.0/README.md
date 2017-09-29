@@ -6,8 +6,7 @@ Nova Versão de Sense IoT
 
 [![Logo](https://raw.githubusercontent.com/GaragemHacker/senseiot/master/sense1.0/images/sense_iot2_128x128.png)](https://github.com/Garagem-Hacker/senseiot/).
 
-Sense IoT é um projeto para pesquisa e desenvolvimento de uma rede sem fio de
-sensores.
+Sense IoT é um projeto para pesquisa e desenvolvimento de uma rede de sensores sem fio.
 
 
 Hardware
@@ -22,13 +21,13 @@ Hardware
 Software
 --------
 * **BrokerMQTT**: Servidor IoT MQTT
-* **Flask**: Microframework Web Application
+* **Flask**: Microframework para aplicação Web
 * **Docker**: Docker Containers
-* **Crypto**: Encript/Decrypt Payload
+* **Crypto**: Rotinas para Criptografar/Decriptografar dados
 
 Estrutura MQTT
 --------------
-Regra de Comunicaço dos Tópicos MQTT para os Dispositivos
+Regra de comunicação dos tópicos MQTT para os dispositivos
 
 /*		   MQTT Topic Struct
 
