@@ -6,6 +6,7 @@
 
 
 Códigos para o Gateway IoT Raspberry
+-----------------------------------
 Módulos
 -------
 * **Mathematica** Analytics;
