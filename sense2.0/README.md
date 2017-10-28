@@ -12,19 +12,27 @@ sensores.
 
 Hardware
 --------
-
+* **ESP8266**: Nó IoT;
+* **Raspberry**: Gateway IoT;
 * **ht05**: Sensor de Umidade e Temperatura;
 * **sct**: Sensor de Corrente Elétrica;
-* **esp8266**: Nó IoT;
 * **ASQ/Ctrl-Board**: Aquisição de corrente e Comandos elétricos.
 
 
 Software
 --------
+* **API**: Da acesso do banco de dados ao Servidor Mathematica
+* **Crypto**: Encript/Decrypt Payload
+* **Docker**: Docker Containers
+* **Mathematica**: Computer Algebra System (CAS) para Analytics dos dados
+* **WebPage**: Visualização dos dados coletados e comandos para controle.
+
+Ferramentas
+-----------
 * **BrokerMQTT**: Servidor IoT MQTT
 * **Flask**: Microframework Web Application
-* **Docker**: Docker Containers
-* **Crypto**: Encript/Decrypt Payload
+
+
 
 Estrutura MQTT
 --------------
