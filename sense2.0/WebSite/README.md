@@ -11,7 +11,6 @@ ScreenShot
 [![Logo](https://raw.githubusercontent.com/edgarreis/senseiot/master/sense2.0/WebSite/WebSite2_Tendencias.png)](http://secondway.com.br/garagem-dashboard/adminLTE/pages/charts/flot.html).
 
 
-
 WebSite para visualização dos dados coletados e comandos para controle.
 
 
@@ -45,6 +44,14 @@ contendo dados como:
   > Eficiencia
   > Custo de indisponibilidade
   > Padrão de consumo
+
+Banco de Dados
+---------------
+
+Tabelas Populadas
+
+
+[![Logo](https://raw.githubusercontent.com/edgarreis/senseiot/master/sense2.0/WebSite/database1.PNG)].
 
 
 Referências 
