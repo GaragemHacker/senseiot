@@ -11,20 +11,29 @@ Sense IoT é um projeto para pesquisa e desenvolvimento de uma rede de sensores 
 
 Hardware
 --------
-
+* **ESP8266**: Nó IoT;
+* **Raspberry**: Gateway IoT;
 * **ht05**: Sensor de Umidade e Temperatura;
 * **sct**: Sensor de Corrente Elétrica;
-* **esp8266**: Nó IoT;
 * **ASQ/Ctrl-Board**: Aquisição de corrente e Comandos elétricos.
 * NodeMCU: Nó Lora com sensores BMP085 e TSL2561.
 
 
 Software
 --------
+* **API**: Da acesso do banco de dados ao Servidor Mathematica
+* **Crypto**: Encript/Decrypt Payload
+* **Docker**: Docker Containers
+* **Mathematica**: Computer Algebra System (CAS) para Analytics dos dados
+* **WebPage**: Visualização dos dados coletados e comandos para controle.
+
+Ferramentas
+-----------
 * **BrokerMQTT**: Servidor IoT MQTT
 * **Flask**: Microframework para aplicação Web
 * **Docker**: Docker Containers
 * **Crypto**: Rotinas para Criptografar/Decriptografar dados
+
 
 
 Estrutura MQTT
@@ -33,7 +42,7 @@ Regra de comunicação dos tópicos MQTT para os dispositivos
 
 /*		   MQTT Topic Struct
 
- 	    '/dev/node1/current2'
+ 	    'dev/node1/current2'
 		|    |     |
 		|    |     |
   	device(dev)  |    variable to sub/pub 

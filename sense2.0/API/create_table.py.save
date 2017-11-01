@@ -1,0 +1,26 @@
+import sqlite3
+
+conn = sqlite3.connect('database.db')
+cursor = conn.cursor()
+
+cursor.execute("""
+    CREATE TABLE temperature (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        temperature TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT 
+    );
+""")
+
+
+cursor.execute("""
+    CREATE TABLE humidity (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        humidity TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW
+    );
+""")
+
+print('Tabelas criadas com sucesso.')
+
+conn.close()
+current_timestamp

@@ -1,0 +1,173 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5638,        165]
+NotebookOptionsPosition[      5218,        146]
+NotebookOutlinePosition[      5552,        161]
+CellTagsIndexPosition[      5509,        158]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", "-"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", "     ", 
+   RowBox[{"MySQL", " ", "Database"}], "               ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", "-"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.709915453315194*^9, 3.7099154533399487`*^9}, {
+  3.710341774900318*^9, 3.710341782161557*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "     ", 
+   RowBox[{"Incluir", " ", "Biblioteca"}], "           ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<DatabaseLink`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+   "JDBCDrivers", "[", "\"\<MySQL(Connector/J)\>\"", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.710336178600999*^9, 3.710336178601494*^9}, {
+  3.713542035650473*^9, 3.713542074289345*^9}}],
+
+Cell[BoxData[
+ RowBox[{"JDBCDriver", "[", 
+  RowBox[{
+   RowBox[{"\<\"Name\"\>", "\[Rule]", "\<\"MySQL(Connector/J)\"\>"}], ",", 
+   RowBox[{"\<\"Driver\"\>", "\[Rule]", "\<\"com.mysql.jdbc.Driver\"\>"}], 
+   ",", 
+   RowBox[{"\<\"Protocol\"\>", "\[Rule]", "\<\"jdbc:mysql://\"\>"}], ",", 
+   RowBox[{"\<\"Version\"\>", "\[Rule]", "3.1`"}], ",", 
+   RowBox[{"\<\"Description\"\>", 
+    "\[Rule]", "\<\"MySQL using Connector/J - Version 5.1.38\"\>"}], ",", 
+   RowBox[{"\<\"Location\"\>", 
+    "\[Rule]", \
+"\<\"/usr/local/Wolfram/Mathematica/11.0/SystemFiles/Links/DatabaseLink/\
+DatabaseResources/mysql.m\"\>"}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.7118100700560627`*^9, 3.711810073406125*^9}, 
+   3.7118133662610807`*^9, {3.712368238109219*^9, 3.712368241067114*^9}, 
+   3.71354172851645*^9, 3.713541836747509*^9, 3.713541977774559*^9, 
+   3.7135421172482843`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "     ", 
+   RowBox[{"Acesso", " ", "ao", " ", "Banco", " ", "de", " ", "Dados"}], 
+   "    ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"conn1", " ", "=", " ", 
+    RowBox[{"OpenSQLConnection", "[", 
+     RowBox[{
+      RowBox[{"JDBC", "[", 
+       RowBox[{
+       "\"\<MySQL(Connector/J)\>\"", ",", "\"\<echo1001.me/mydata\>\""}], 
+       "]"}], ",", 
+      RowBox[{"\"\<Username\>\"", "\[Rule]", "\"\<root\>\""}], ",", 
+      RowBox[{"\"\<Password\>\"", "\[Rule]", "\"\<mysql-server\>\""}]}], 
+     "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.710336219367631*^9, 3.71033628103048*^9}, {
+   3.710336364198614*^9, 3.710336370090147*^9}, 3.710336572056274*^9, {
+   3.710340082614105*^9, 3.7103400841744337`*^9}, {3.710347151792214*^9, 
+   3.710347163928073*^9}, {3.710641130556438*^9, 3.710641139306995*^9}, 
+   3.711810066367331*^9, {3.712368230540518*^9, 3.712368230771893*^9}, {
+   3.7123682700106783`*^9, 3.712368273080429*^9}, {3.71354182962789*^9, 
+   3.713541831781931*^9}, 3.713541880598197*^9, {3.7135420539450808`*^9, 
+   3.713542088294807*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "     ", 
+   RowBox[{"SQL", " ", "Get"}], "    ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"SQLExecute", "[", 
+    RowBox[{
+    "conn1", ",", 
+     "\"\<SELECT * FROM table_test ORDER BY id DESC LIMIT 25\>\""}], "]"}], "//",
+    "TableForm"}]}]], "Input",
+ CellChangeTimes->{{3.71181338162755*^9, 3.711813382287635*^9}, {
+   3.7118134444210367`*^9, 3.7118135393237743`*^9}, {3.711813623971909*^9, 
+   3.711813625857583*^9}, {3.7118136966159563`*^9, 3.7118137137318077`*^9}, {
+   3.711813936834139*^9, 3.711813960808578*^9}, {3.711814124818818*^9, 
+   3.71181412676045*^9}, {3.7120791822831306`*^9, 3.712079182487471*^9}, {
+   3.7123682926546183`*^9, 3.7123683171620407`*^9}, {3.7135419038448677`*^9, 
+   3.713541918820257*^9}, 3.71354201874728*^9, {3.7135420935518093`*^9, 
+   3.713542110703315*^9}}]
+},
+WindowSize->{1870, 1003},
+WindowMargins->{{1, Automatic}, {1, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1313, 44, 72, "Input"],
+Cell[CellGroupData[{
+Cell[1896, 68, 459, 12, 77, "Input"],
+Cell[2358, 82, 872, 17, 52, "Output"]
+}, Open  ]],
+Cell[3245, 102, 1113, 23, 52, "Input"],
+Cell[4361, 127, 853, 17, 56, "Input"]
+}
+]
+*)
+

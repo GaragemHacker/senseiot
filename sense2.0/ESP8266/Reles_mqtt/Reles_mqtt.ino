@@ -22,17 +22,21 @@
 #include <EEPROM.h>
 #include <Stream.h>
 #include "string.h"
-#define ESP8266_LED1 16
-#define ESP8266_LED2 4    
+#include <ESP8266mDNS.h>
+#include <WiFiUdp.h>
+#include <ArduinoOTA.h>
 
-const char* ssid          = ""
-const char* password      = ""
-const char* mqtt_server   = ""
+#define ESP8266_LED1 0  // D3
+#define ESP8266_LED2 14 // D5
+
+const char* ssid          = "";  
+const char* password      = "";      
+const char* mqtt_server   = "";
 int port_server           = 1883;
-const char* topicButton2  = "/dev/node1/led3";
-const char* topicButton3  = "/dev/node1/led4";
-//const char* outTopic    = "/clients/cmd";
-const char* outTopic      = "/clients";
+const char* topicButton2  = "cmd/node1/rele1";
+const char* topicButton3  = "cmd/node1/rele2";
+//const char* outTopic    = "clients/cmd";
+const char* outTopic      = "clients";
 
 char ButtonChar[5];
 char PayloadChar[5];
@@ -44,8 +48,8 @@ String HumValue;
 String Button;
 String PayloadString;
 
-WiFiClient espClient;
-PubSubClient client(espClient);
+WiFiClient ESP8266Client2;
+PubSubClient client(ESP8266Client2);
 
 long lastMsg = 0;
 char msg[50];
@@ -70,6 +74,38 @@ void setup_wifi() {
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  // Configuração do OTA  
+  // Port defaults to 8266
+  ArduinoOTA.setPort(8266);
+
+  // Hostname defaults to esp8266-[ChipID]
+  ArduinoOTA.setHostname("Node1-Reles");
+
+  // No authentication by default
+  ArduinoOTA.setPassword((const char *)"esp8266");
+
+  ArduinoOTA.onStart([]() {
+    Serial.println("Start");
+  });
+  ArduinoOTA.onEnd([]() {
+    Serial.println("\nEnd");
+  });
+  ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
+    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+  });
+  ArduinoOTA.onError([](ota_error_t error) {
+    Serial.printf("Error[%u]: ", error);
+    if (error == OTA_AUTH_ERROR) Serial.println("Auth Failed");
+    else if (error == OTA_BEGIN_ERROR) Serial.println("Begin Failed");
+    else if (error == OTA_CONNECT_ERROR) Serial.println("Connect Failed");
+    else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
+    else if (error == OTA_END_ERROR) Serial.println("End Failed");
+  });
+  ArduinoOTA.begin();
+  Serial.println("Ready");
+  Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
   
 }
@@ -132,10 +168,10 @@ void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect
-    if (client.connect("ESP8266Client")) {
+    if (client.connect("ESP8266Client2")) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish(outTopic, "Node Connected");
+      client.publish(outTopic, "Node2 Connected");
       // ... and resubscribe
       client.subscribe(topicButton2);
       client.subscribe(topicButton3);
@@ -151,11 +187,7 @@ void reconnect() {
  }
 
 
-//void establishContact() {
-//  while (Serial.available() <= 0) {
-//    delay(300);
-//  }
-//}
+
 
 void setup() {
 
@@ -171,7 +203,10 @@ void setup() {
 }
 
 void loop() {
-
+  
+  // Verificação OTA update
+  ArduinoOTA.handle();
+    
   if (!client.connected()) {
     reconnect();
     yield();
@@ -180,5 +215,4 @@ void loop() {
   client.loop();
 
 }
-
 

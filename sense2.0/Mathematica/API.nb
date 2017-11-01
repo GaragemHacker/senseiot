@@ -1,0 +1,253 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7138,        245]
+NotebookOptionsPosition[      5831,        195]
+NotebookOutlinePosition[      6177,        210]
+CellTagsIndexPosition[      6134,        207]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Get", "[", 
+  RowBox[{"FindFile", "[", "\"\<JSONTools`\>\"", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7134783706942177`*^9, 3.7134783976353626`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"imp2", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://www.echo1001.me:5002/temperature/8\>\"", ",", 
+     "\"\<json\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.713478402792909*^9, 3.71347844842986*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "=", 
+  RowBox[{"\"\<data\>\"", "/.", "imp2"}]}]], "Input",
+ CellChangeTimes->{{3.713478458184288*^9, 3.7134784684208865`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"\<\"updated_at\"\>", "\[Rule]", "Null"}], ",", 
+    RowBox[{"\<\"created_at\"\>", "\[Rule]", "\<\"2017-07-25 01:50:43\"\>"}], 
+    ",", 
+    RowBox[{"\<\"temperature\"\>", "\[Rule]", "\<\"25\"\>"}], ",", 
+    RowBox[{"\<\"id\"\>", "\[Rule]", "8"}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.7134784706276493`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"id", "=", 
+  RowBox[{"\"\<id\>\"", "/.", "data"}]}]], "Input",
+ CellChangeTimes->{{3.713478473218396*^9, 3.7134784978185596`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "8", "}"}]], "Output",
+ CellChangeTimes->{3.713478485291557*^9, 3.7134785675835667`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"imp3", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://www.echo1001.me:5002/temperature\>\"", ",", "\"\<json\>\""}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7134785070790873`*^9, 3.7134785506709943`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.713478562428296*^9, 3.713478563864262*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dim", "=", 
+  RowBox[{"Dimensions", "[", 
+   RowBox[{"\"\<temp\>\"", "/.", "imp3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7134785729838886`*^9, 3.7134786049832783`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "16580", "}"}]], "Output",
+ CellChangeTimes->{3.713478607249882*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Head", "@", "dim"}]], "Input",
+ CellChangeTimes->{{3.7134786096118293`*^9, 3.7134786133545136`*^9}}],
+
+Cell[BoxData["List"], "Output",
+ CellChangeTimes->{3.7134786148393154`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dim", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{3.7134786519601793`*^9}],
+
+Cell[BoxData["16580"], "Output",
+ CellChangeTimes->{3.7134786527666426`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Head", "@", 
+  RowBox[{"dim", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7134786192303567`*^9, 3.7134786394568853`*^9}}],
+
+Cell[BoxData["Integer"], "Output",
+ CellChangeTimes->{3.7134786406162443`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"impN", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", "5"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"temp", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", "5"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7134794430654984`*^9, 3.7134794672681284`*^9}, {
+  3.7134798034414377`*^9, 3.7134798181141677`*^9}, {3.7134801127713575`*^9, 
+  3.713480118765811*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "<", "6"}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"impN", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"\"\<http://www.echo1001.me:5002/temperature/\>\"", "<>", 
+        RowBox[{"ToString", "[", "i", "]"}]}], ",", "\"\<json\>\""}], "]"}]}],
+     ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"temp", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{"\"\<temperature\>\"", "/.", "\"\<data\>\""}], "/.", 
+      RowBox[{"impN", "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}]}], ";"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7134786629429874`*^9, 3.713478764104842*^9}, {
+  3.71347886576936*^9, 3.71347890430191*^9}, {3.7134790496487265`*^9, 
+  3.7134790523080244`*^9}, {3.7134799165726037`*^9, 3.7134799196664767`*^9}, {
+  3.7134799553859053`*^9, 3.713479958277771*^9}, {3.713480121634103*^9, 
+  3.7134801632208357`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ReplaceAll","reps",
+   "\"\\!\\(\\*RowBox[{\\\"{\\\", \\\"\\\\\\\"data\\\\\\\"\\\", \
+\\\"}\\\"}]\\) is neither a list of replacement rules nor a valid dispatch \
+table, and so cannot be used for replacing.\"",2,91,40,21588591634697977329,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.7134799267119327`*^9, 3.713479965904123*^9}, {
+  3.7134801287184305`*^9, 3.7134801650288305`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.713479585264138*^9, 3.7134795861120152`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Head", "@", 
+  RowBox[{"temp", "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7134799703395386`*^9, 3.713479970756735*^9}, {
+  3.713480268699744*^9, 3.71348034369242*^9}}],
+
+Cell[BoxData["List"], "Output",
+ CellChangeTimes->{3.713480344375733*^9}]
+}, Open  ]]
+},
+WindowSize->{766, 782},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 178, 3, 47, "Input"],
+Cell[739, 25, 264, 7, 47, "Input"],
+Cell[CellGroupData[{
+Cell[1028, 36, 158, 3, 30, "Input"],
+Cell[1189, 41, 389, 9, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1615, 55, 154, 3, 30, "Input"],
+Cell[1772, 60, 116, 2, 30, "Output"]
+}, Open  ]],
+Cell[1903, 65, 266, 7, 47, "Input"],
+Cell[2172, 74, 92, 1, 30, "Input"],
+Cell[CellGroupData[{
+Cell[2289, 79, 197, 4, 47, "Input"],
+Cell[2489, 85, 96, 2, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2622, 92, 124, 2, 47, "Input"],
+Cell[2749, 96, 75, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2861, 102, 123, 3, 30, "Input"],
+Cell[2987, 107, 76, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3100, 113, 176, 4, 47, "Input"],
+Cell[3279, 119, 78, 1, 30, "Output"]
+}, Open  ]],
+Cell[3372, 123, 433, 11, 84, "Input"],
+Cell[CellGroupData[{
+Cell[3830, 138, 1103, 27, 124, "Input"],
+Cell[4936, 167, 446, 9, 23, "Message"]
+}, Open  ]],
+Cell[5397, 179, 94, 1, 30, InheritFromParent],
+Cell[CellGroupData[{
+Cell[5516, 184, 223, 5, 47, "Input"],
+Cell[5742, 191, 73, 1, 63, "Output"]
+}, Open  ]]
+}
+]
+*)
+
