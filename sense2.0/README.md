@@ -16,6 +16,7 @@ Hardware
 * **sct**: Sensor de Corrente Elétrica;
 * **esp8266**: Nó IoT;
 * **ASQ/Ctrl-Board**: Aquisição de corrente e Comandos elétricos.
+* NodeMCU: Nó Lora com sensores BMP085 e TSL2561.
 
 
 Software
@@ -24,6 +25,7 @@ Software
 * **Flask**: Microframework para aplicação Web
 * **Docker**: Docker Containers
 * **Crypto**: Rotinas para Criptografar/Decriptografar dados
+
 
 Estrutura MQTT
 --------------
