@@ -1,0 +1,6 @@
+FROM golang
+RUN mkdir /webSense
+ADD webSense /webSense
+WORKDIR /webSense
+RUN go build
+CMD ["/webSense/webSense"]

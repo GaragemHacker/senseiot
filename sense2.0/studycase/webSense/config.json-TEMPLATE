@@ -1,0 +1,9 @@
+{
+	"id":"webSense",
+	"urlBrocker":"example.com",
+	"port":1883,
+	"protocol":"tcp",
+	"security":false,
+	"user":"garagem",
+	"pass":"123"
+}

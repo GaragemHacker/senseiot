@@ -1,0 +1,6 @@
+FROM scratch
+#RUN mkdir /iot
+ADD webSense /
+ADD static / 
+ADD template / 
+CMD ["/webSense"]

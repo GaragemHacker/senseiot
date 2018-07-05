@@ -1,0 +1,9 @@
+{{with .values}}
+{{range .}}
+
+        {{.Value}}
+        {{.Date}}
+{{end}}
+{{else}}
+        Nenhuma menssagem recebida até o momento, aguarde alguns segundos.
+{{end}}

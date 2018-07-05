@@ -1,0 +1,31 @@
+---
+version: '2'
+
+services:
+  mqtt:
+    image: toke/mosquitto
+    container_name: moskito
+    ports:
+      - 1883:1883
+      #- 9001:9001
+    networks:
+      - web
+
+  iotsense:
+    build: webSense/.
+    container_name: iotweb
+    links:
+      - "mqtt:mosca"
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.domain=iot.garagemhacker.org"
+      - "traefik.port=8080"
+      - "traefik.backend=iot"
+      - "traefik.frontend.rule=Host:iot.garagemhacker.org"
+networks:
+  web:
+    external:
+      name: trae
+  

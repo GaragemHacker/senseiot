@@ -1,0 +1,11 @@
+{{with .vatiables}}
+<b  class="list-group-item list-group-item-info">Selecione um Node</b>
+{{range .}}
+
+    <a href="#{{.Name}}" class="variable list-group-item">{{.Name}}</a>
+
+{{end}}
+
+{{else}}
+        Nenhuma menssagem recebida até o momento, aguarde alguns segundos.
+{{end}}

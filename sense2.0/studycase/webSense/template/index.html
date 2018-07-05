@@ -1,0 +1,151 @@
+{{define "content"}}
+	<div class="row">
+			
+					<div class="col-centered text-center">
+							<button type="button" class="btn btn-success sub" data-url="n3r11">N3/r1 Ligar</button>
+							<button type="button" class="btn btn-warning sub" data-url="n3r10">N3/r1 Desligar</button>
+
+							<button type="button" class="btn btn-success sub" data-url="n3r21">N3/r2 Ligar</button>
+							<button type="button" class="btn btn-warning sub" data-url="n3r20">N3/r2 Desligar</button>
+
+							<button type="button" class="btn btn-success sub" data-url="n4r11">N4/r1 Ligar</button>
+							<button type="button" class="btn btn-warning sub" data-url="n4r10">N4/r1 Desligar</button>
+
+							<button type="button" class="btn btn-success sub" data-url="n4r21">N4/r2 Ligar</button>
+							<button type="button" class="btn btn-warning sub" data-url="n4r20">N4/r2 Desligar</button>
+
+						</div>
+			
+		
+		<div class="col-md-12">
+			<h3>IOT controle</h3>
+			{{with .nodes}}
+					
+						<div class="col-md-3">
+							<div class="col-md-12 list-group">
+									<b  class="list-group-item list-group-item-info">Selecione um Node</b>
+									{{range .}}
+				
+										<a href="#{{.Name}}" class="node list-group-item">{{.Name}}</a>
+							
+								{{end}}
+						</div>
+						<div class="col-md-12 variables list-group">
+								
+						</div>
+					</div>
+
+				<div class="col-md-9">
+						<div class="chart-container" style="  position: relative;margin: auto;height: 60vh;width: 60vw;">
+							<canvas id="myChart"></canvas>
+						</div>
+				</div>
+			</div>
+
+				{{else}}
+					Nenhuma menssagem recebida até o momento, aguarde alguns segundos.
+			{{end}}
+	</div>
+{{end}}
+{{define "script"}}
+<script>
+$(".infoData .alert").hide();
+
+$(document).on("click",".sub",function () {
+
+	var str = "";
+	str += $( this ).attr("data-url")
+	dt = "cmd="+str.replace(/\s/g, '');
+	$.ajax({
+    method:"POST",
+    url: "sub",
+    data:dt
+  }).done(function(msg) {
+		
+		if(msg==ok){
+			sucesso("Comando enviado com Sucesso");
+		}else{
+			sucesso("Falha ao enviar o comando");
+		}
+  });
+
+});
+
+
+
+$(document).on("click",".node",function () {
+
+	var str = "";
+	$(".node").removeClass("active");
+	$(this).addClass( "active" );
+	str += $( this ).text() + " ";
+	dt = "node="+str.replace(/\s/g, '');
+	$.ajax({
+    method:"POST",
+    url: "variables",
+    data:dt
+  }).done(function(msg) {
+		
+		$(".variables").html(msg);
+		
+
+  });
+
+});
+
+$(document).on("click",".variable",function () {
+
+	var str = "";
+	$(".variable").removeClass("active");
+	$(this).addClass( "active" );
+	str += $( this ).text() + " ";
+	dt = "variable="+str.replace(/\s/g, '');
+	$.ajax({
+    method:"POST",
+    url: "values",
+    data:dt
+  }).done(function(msg) {
+		resp = $.parseJSON(msg)
+
+		
+		var ctx = document.getElementById("myChart").getContext('2d');
+		myChart = new Chart(ctx,  {
+
+					type: 'line',
+					data: {
+						labels: resp.labels,
+						datasets: [{
+							data: resp.datasets.data,
+							label: resp.datasets.label,
+							borderColor: "#3cba9f",
+							fill:false,
+						}]
+					},
+					options: {
+						title: {
+							display: true,
+							text: 'Dados de '+resp.datasets.label
+						}
+					}
+				
+		});
+		//myChart.update();
+
+  });
+
+});
+
+function sucesso(msg){
+  $('.alert-success').fadeIn(700).text(msg);
+  $('html, body').animate({scrollTop: $('.alert-success').offset().top-60}, 500);
+  $(".alert-success").fadeTo(2000, 500).slideUp(500,ajax_call);
+}
+function falha(msg){
+  $('.alert-warning').fadeIn(700).text(msg);
+  $('html, body').animate({scrollTop: $('.alert-warning').offset().top-60}, 500);
+  $(".alert-warning").fadeTo(2000, 500).slideUp(500,ajax_call);
+}
+
+
+</script>
+{{end}}
